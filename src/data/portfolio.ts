@@ -16,18 +16,20 @@ export const personalInfo = {
     "My expertise spans Java, Spring Boot, React, Next.js, REST APIs, Microservices, Machine Learning, and Generative AI. I've built enterprise-grade applications, reached the Adobe India Hackathon Finals, participated in multiple national hackathons, and continuously improve my problem-solving skills through competitive programming and real-world projects.",
   ],
 
-  // Update these links if required
-  email: "your.email@example.com",
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourprofile",
+  // Social & coding links
+  email: "wanirohan21@gmail.com",
+  github: "https://github.com/wani21",
+  linkedin: "https://www.linkedin.com/in/rohan-wani-82b2062bb/",
+  leetcode: "https://leetcode.com/u/ok_Rohan/",
+  gfg: "https://www.geeksforgeeks.org/profile/wanirohan21",
   resumeUrl: "/resume.pdf",
 };
 
 export const typewriterRoles = [
-  "Java Full Stack Developer",
-  "Backend Developer",
-  "AI/ML Developer",
-  "Problem Solver",
+  "scalable full-stack web apps",
+  "enterprise backend microservices",
+  "AI-powered smart applications",
+  "high-performance REST APIs",
 ];
 
 export interface StatEntry {

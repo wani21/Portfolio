@@ -76,7 +76,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative py-24 bg-[#0a0a0f]"
+      className="relative py-24 bg-transparent"
       aria-label="Experience section"
     >
       {/* Subtle left-side glow */}

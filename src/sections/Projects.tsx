@@ -69,7 +69,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative py-24 bg-[#0a0a0f]"
+      className="relative py-24 bg-transparent"
       aria-label="Projects section"
     >
       <div

@@ -1,12 +1,41 @@
 import { motion } from "framer-motion";
 import { FiGithub, FiLinkedin, FiMail, FiArrowRight } from "react-icons/fi";
+import { SiLeetcode, SiGeeksforgeeks } from "react-icons/si";
 import { useTypewriter } from "../hooks/useTypewriter";
 import { personalInfo, typewriterRoles } from "../data/portfolio";
 
+// Social handle config with brand colors
 const SOCIAL_LINKS = [
-  { icon: FiGithub, href: personalInfo.github, label: "GitHub" },
-  { icon: FiLinkedin, href: personalInfo.linkedin, label: "LinkedIn" },
-  { icon: FiMail, href: `mailto:${personalInfo.email}`, label: "Email" },
+  {
+    icon: FiGithub,
+    href: personalInfo.github,
+    label: "GitHub",
+    hoverColor: "hover:text-white hover:border-white/40 hover:bg-white/5",
+  },
+  {
+    icon: FiLinkedin,
+    href: personalInfo.linkedin,
+    label: "LinkedIn",
+    hoverColor: "hover:text-[#0A66C2] hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/10",
+  },
+  {
+    icon: SiLeetcode,
+    href: personalInfo.leetcode,
+    label: "LeetCode",
+    hoverColor: "hover:text-[#FFA116] hover:border-[#FFA116]/50 hover:bg-[#FFA116]/10",
+  },
+  {
+    icon: SiGeeksforgeeks,
+    href: personalInfo.gfg,
+    label: "GeeksforGeeks",
+    hoverColor: "hover:text-[#2F8D46] hover:border-[#2F8D46]/50 hover:bg-[#2F8D46]/10",
+  },
+  {
+    icon: FiMail,
+    href: `mailto:${personalInfo.email}`,
+    label: "Email",
+    hoverColor: "hover:text-[#38bdf8] hover:border-[#38bdf8]/50 hover:bg-[#38bdf8]/10",
+  },
 ];
 
 export default function Hero() {
@@ -70,7 +99,7 @@ export default function Hero() {
           className="flex items-center justify-center gap-2 text-xl sm:text-2xl font-medium mb-6 h-9"
         >
           <span className="text-[#94a3b8]">I build</span>
-          <span className="text-[#38bdf8] font-semibold min-w-[200px] text-left">
+          <span className="text-[#38bdf8] font-semibold min-w-[280px] sm:min-w-[360px] text-left">
             {role}
           </span>
           <span className="typewriter-cursor" aria-hidden="true" />
@@ -93,7 +122,7 @@ export default function Hero() {
             hidden: { opacity: 0, y: 28 },
             show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
           }}
-          className="flex flex-col sm:flex-row items-center gap-4 mb-12"
+          className="flex flex-col sm:flex-row items-center gap-4 mb-10"
         >
           <a
             href="#projects"
@@ -119,25 +148,29 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* Social icons */}
+        {/* Coding Handles / Social Links */}
         <motion.div
           variants={{
             hidden: { opacity: 0, y: 28 },
             show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
           }}
-          className="flex items-center gap-4 mb-16"
+          className="flex items-center gap-3 mb-16 flex-wrap justify-center"
         >
-          {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
-            <a
+          {SOCIAL_LINKS.map(({ icon: Icon, href, label, hoverColor }) => (
+            <motion.a
               key={label}
               href={href}
               target={href.startsWith("mailto") ? undefined : "_blank"}
               rel="noopener noreferrer"
               aria-label={label}
-              className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-[#94a3b8] hover:text-white hover:border-[#60a5fa]/50 hover:bg-[#60a5fa]/10 transition-all duration-300"
+              title={label}
+              whileHover={{ scale: 1.12, y: -3 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className={`w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-[#94a3b8] transition-all duration-300 ${hoverColor}`}
             >
-              <Icon size={18} />
-            </a>
+              <Icon size={19} />
+            </motion.a>
           ))}
         </motion.div>
 

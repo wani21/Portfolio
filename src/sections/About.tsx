@@ -52,7 +52,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-24 bg-[#0d0d14]"
+      className="relative py-24 bg-[#0d0d14]/75 backdrop-blur-sm"
       ref={sectionRef}
       aria-label="About section"
     >

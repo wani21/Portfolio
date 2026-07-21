@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { FiSend, FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
+import { SiLeetcode, SiGeeksforgeeks } from "react-icons/si";
 import emailjs from "@emailjs/browser";
 import { personalInfo } from "../data/portfolio";
 
@@ -62,25 +63,42 @@ export default function Contact() {
       label: "Email",
       href: `mailto:${personalInfo.email}`,
       value: personalInfo.email,
+      color: "text-[#38bdf8]",
     },
     {
       icon: FiGithub,
       label: "GitHub",
       href: personalInfo.github,
       value: personalInfo.github.replace("https://", ""),
+      color: "text-white",
     },
     {
       icon: FiLinkedin,
       label: "LinkedIn",
       href: personalInfo.linkedin,
-      value: personalInfo.linkedin.replace("https://", ""),
+      value: "linkedin.com/in/rohan-wani",
+      color: "text-[#0A66C2]",
+    },
+    {
+      icon: SiLeetcode,
+      label: "LeetCode",
+      href: personalInfo.leetcode,
+      value: "leetcode.com/u/ok_Rohan",
+      color: "text-[#FFA116]",
+    },
+    {
+      icon: SiGeeksforgeeks,
+      label: "GeeksforGeeks",
+      href: personalInfo.gfg,
+      value: "gfg/wanirohan21",
+      color: "text-[#2F8D46]",
     },
   ];
 
   return (
     <section
       id="contact"
-      className="relative py-24 bg-[#0a0a0f]"
+      className="relative py-24 bg-transparent"
       aria-label="Contact section"
     >
       <div
@@ -123,24 +141,26 @@ export default function Contact() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-2 flex flex-col gap-4"
           >
-            {CONTACT_LINKS.map(({ icon: Icon, label, href, value }) => (
-              <a
+            {CONTACT_LINKS.map(({ icon: Icon, label, href, value, color }) => (
+              <motion.a
                 key={label}
                 href={href}
                 target={label !== "Email" ? "_blank" : undefined}
                 rel="noopener noreferrer"
+                whileHover={{ x: 4, scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
                 className="card p-4 flex items-center gap-4 hover:border-[#60a5fa]/30 group transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#60a5fa]/10 to-[#818cf8]/10 border border-[#60a5fa]/20 flex items-center justify-center flex-shrink-0">
-                  <Icon size={18} className="text-[#60a5fa]" />
+                <div className={`w-10 h-10 rounded-lg bg-gradient-to-br from-[#60a5fa]/10 to-[#818cf8]/10 border border-[#60a5fa]/20 flex items-center justify-center flex-shrink-0 ${color}`}>
+                  <Icon size={18} />
                 </div>
                 <div>
                   <p className="text-xs text-[#94a3b8] mb-0.5">{label}</p>
-                  <p className="text-white text-sm font-medium group-hover:text-[#38bdf8] transition-colors duration-200 truncate max-w-[180px]">
+                  <p className="text-white text-sm font-medium group-hover:text-[#38bdf8] transition-colors duration-200 truncate max-w-[200px]">
                     {value}
                   </p>
                 </div>
-              </a>
+              </motion.a>
             ))}
           </motion.div>
 

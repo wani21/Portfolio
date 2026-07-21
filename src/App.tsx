@@ -1,4 +1,4 @@
-import NetworkBackground from "./components/NetworkBackground";
+import AtomBackground from "./components/AtomBackground";
 import MouseTrail from "./components/MouseTrail";
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
@@ -13,31 +13,31 @@ import Footer from "./sections/Footer";
 
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-[#0a0a0f]">
-      {/* Fixed background — sits behind everything */}
-      <NetworkBackground />
+    <>
+      {/* ── Layer 0: Fixed animated atom background ── */}
+      <AtomBackground />
 
-      {/* Mouse trail canvas — on top of background, below UI */}
+      {/* ── Layer 1: Mouse trail (above background, below UI) ── */}
       <MouseTrail />
 
-      {/* Sticky navbar */}
-      <Navbar />
+      {/* ── Layer 2: All page content sits above both ── */}
+      <div className="relative" style={{ zIndex: 10 }}>
+        <Navbar />
 
-      {/* Page sections */}
-      <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Certifications />
-        <Contact />
-      </main>
+        <main>
+          <Hero />
+          <About />
+          <Experience />
+          <Skills />
+          <Projects />
+          <Certifications />
+          <Contact />
+        </main>
 
-      <Footer />
+        <Footer />
 
-      {/* Floating scroll-to-top FAB */}
-      <ScrollToTop />
-    </div>
+        <ScrollToTop />
+      </div>
+    </>
   );
 }

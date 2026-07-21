@@ -124,7 +124,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative py-24 bg-[#0d0d14]"
+      className="relative py-24 bg-[#0d0d14]/75 backdrop-blur-sm"
       aria-label="Skills section"
     >
       <div
