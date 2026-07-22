@@ -37,8 +37,8 @@ const CERT_ICON_MAP: Record<string, IconComp> = {
 // ── Framer-Motion variants ────────────────────────────────────────────────────
 const overlayVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.28, ease: "easeOut" } },
-  exit: { opacity: 0, transition: { duration: 0.22, ease: "easeIn" } },
+  visible: { opacity: 1, transition: { duration: 0.28, ease: "easeOut" as const } },
+  exit: { opacity: 0, transition: { duration: 0.22, ease: "easeIn" as const } },
 };
 
 const panelVariants = {
@@ -47,13 +47,13 @@ const panelVariants = {
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: { type: "spring", stiffness: 300, damping: 26, mass: 0.75 },
+    transition: { type: "spring" as const, stiffness: 300, damping: 26, mass: 0.75 },
   },
   exit: {
     opacity: 0,
     scale: 0.91,
     y: 28,
-    transition: { duration: 0.2, ease: "easeIn" },
+    transition: { duration: 0.2, ease: "easeIn" as const },
   },
 };
 
@@ -64,7 +64,7 @@ const skillsContainer = {
 
 const skillChip = {
   hidden: { opacity: 0, scale: 0.75 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.32, ease: "easeOut" } },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.32, ease: "easeOut" as const } },
 };
 
 // ── Helper: map color string to CSS gradient ─────────────────────────────────

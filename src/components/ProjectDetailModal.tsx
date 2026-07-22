@@ -23,8 +23,8 @@ const categoryColors: Record<string, string> = {
 
 const overlayVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.3, ease: "easeOut" } },
-  exit: { opacity: 0, transition: { duration: 0.25, ease: "easeIn" } },
+  visible: { opacity: 1, transition: { duration: 0.3, ease: "easeOut" as const } },
+  exit: { opacity: 0, transition: { duration: 0.25, ease: "easeIn" as const } },
 };
 
 const modalVariants = {
@@ -33,13 +33,13 @@ const modalVariants = {
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: { type: "spring", stiffness: 280, damping: 24, mass: 0.8 },
+    transition: { type: "spring" as const, stiffness: 280, damping: 24, mass: 0.8 },
   },
   exit: {
     opacity: 0,
     scale: 0.92,
     y: 24,
-    transition: { duration: 0.22, ease: "easeIn" },
+    transition: { duration: 0.22, ease: "easeIn" as const },
   },
 };
 
@@ -52,12 +52,12 @@ const listVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, x: -16 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" as const } },
 };
 
 const chipVariants = {
   hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.35, ease: "easeOut" } },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.35, ease: "easeOut" as const } },
 };
 
 export default function ProjectDetailModal({
